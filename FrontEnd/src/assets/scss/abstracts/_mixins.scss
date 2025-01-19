@@ -1,0 +1,69 @@
+
+@use './variables' as *;
+
+@function _rgba($color, $opacity: 1) {
+    @return unquote("rgba(#{red($color)}, #{green($color)}, #{blue($color)}, #{$opacity})");
+}
+@mixin transition($time) {
+    -webkit-transition: all $time linear 0s;
+    -moz-transition: all $time linear 0s;
+    -ms-transition: all $time linear 0s;
+    -o-transition: all $time linear 0s;
+    transition: all $time linear 0s;
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value;
+    -ms-transform: $value;
+    transform: $value;
+}
+
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+		@content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+
+/* Mixin for Button style*/
+
+@mixin common_btn($color: --clr-common-white, $bg-color: --clr-theme-2, $hover-color: --clr-common-white, $hover-bg-color: --clr-common-black) {
+
+    color: var($color);
+    background-color: var($bg-color);
+    &:hover {
+        color: var($hover-color);
+        background-color: var($hover-bg-color);
+    }
+}
+
+/* Mixin for Animated Button*/
+
+
+
+// animation
+@keyframes icon-bounce {
+    0%,
+    100%,
+    20%,
+    50%,
+    80% {
+      @include transform(translateY(0));
+    }
+    40% {
+      @include transform(translateY(-10px));
+    }
+    60% {
+      @include transform(translateY(-5px));
+    }
+  }

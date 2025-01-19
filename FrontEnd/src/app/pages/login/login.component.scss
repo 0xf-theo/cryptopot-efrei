@@ -1,0 +1,26 @@
+
+
+button {
+  display: block;
+  margin: auto;
+}
+
+form input {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgot-password {
+  text-align: left;
+}
+
+.not-registered {
+  text-align: right;
+}
+

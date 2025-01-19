@@ -1,0 +1,102 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+
+
+/*
+*****
+24. Services
+*************************
+*/
+
+
+.services_single {
+    text-align: center;
+    border: 2px solid #eeeeee;
+    padding: 50px;
+    border-radius: 10px;
+    @include transition(0.3s);
+
+    @media #{$xl, $md, $xs} {
+        padding: 40px 30px;
+    }
+    
+    @media #{$sm} {
+        padding: 40px;
+    }
+
+
+    & .services_text {
+        & p {
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+    }
+
+    &:hover {
+        border-color: transparent;
+        box-shadow: 0 23px 49px rgba(0, 0, 0, 0.1);
+        & img {
+            transform: scale(0.95);
+        }
+    }
+}
+
+.services_img {
+    margin-bottom: 35px;
+    height: 192px;
+    overflow: hidden;
+    & img {
+        height: 100%;
+        
+    }
+
+
+}
+
+.services_title {
+    text-transform: capitalize;
+    font-size: 24px;
+
+    @media #{$md} {
+        font-size: 20px;
+    }
+    @media #{$xs} {
+        font-size: 19px;
+    }
+    @media #{$sm} {
+        font-size: 24px;
+    }
+
+
+    &:hover {
+        & a {
+            color: var(--clr-theme-1);
+        }
+    }
+    & a {
+        text-decoration: none;
+      }
+  }
+
+  .service_btn {
+    border: 2px solid #e6e6e6;
+    text-align: center;
+    padding: 0px 38px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--clr-body-heading-color);
+    text-decoration: none;
+    border-radius: 50px;
+    display: inline-block;
+    transition: 0.3s;
+    height: 56px;
+    line-height: 52px;
+    background-color: transparent;
+
+    &:hover {
+        background-color: var(--clr-theme-1);
+        color: var(--clr-common-white);
+        border-color: var(--clr-theme-1);
+    }
+  }

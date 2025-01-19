@@ -1,0 +1,86 @@
+<section class="about_area pt-30">
+  <div class="about_white_bg">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="section_title text-center mb-10">
+            <div style="text-align: center">
+              <img src="assets/img/logo/logo-vertical.png" style="width: 10%;" />
+            </div>
+            <h3 class="title title_2">Donate</h3>
+          </div>
+        </div>
+        <div *ngIf="pot && association" class="card"
+          style="width: 50rem; margin-left: auto; margin-right: auto;margin-top: 2rem">
+          <div class="card-body">
+            <div style="display: flex;justify-content: space-between;align-items: center;">
+              <div>
+                <h4 style="margin-bottom: 0px;">{{pot.name}}</h4>
+                <h5>for {{association.name}}</h5>
+              </div>
+              <div>
+                <a target="_blank" [routerLink]="'/pot/'+pot.id">See pot</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="width: 50rem; margin-left: auto; margin-right: auto;margin-top: 2rem">
+          <div class="card-body">
+            <div *ngIf="loading">Loading...</div>
+            <div *ngIf="error">{{error}}</div>
+            <div *ngIf="success" style="display: flex; flex-direction: column;justify-content: center;align-items: center;">
+              <h1 style="color: green">Thanks you !</h1>
+              <p>your contributions has been successfully received</p>
+              <hr />
+              <p>If you want tax-receipt or you've any question regarding your donation, you can send us and email with that unique code identifying your transaction : <strong>{{this.code}}</strong></p>
+      
+            </div>
+            <form *ngIf="!loading && !error && !success">
+              <br>
+              <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
+                  placeholder="Coin amount" pattern="[0-9]+" [(ngModel)]="amount" [ngModelOptions]="{standalone: true}"
+                  title="Please enter only numbers">
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Message to nonprofit (e.g. area of
+                  intent)</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="message" [ngModelOptions]="{standalone: true}"></textarea>
+              </div>
+
+              <br>
+              <br>
+
+              <div class="d-grid gap-2 col-6 mx-auto" *ngIf="this._web3Service.isWeb3Connected()">
+                <button class="btn btn-primary" type="button" (click)="donate()" [disabled]="this.hasRunningTransaction()">Donate !</button>
+              </div>
+
+              <div class="d-grid gap-2 col-6 mx-auto" *ngIf="!this._web3Service.isWeb3Connected()">
+                <button class="btn btn-primary" (click)="this._web3Service.login()" type="button">Connect to
+                  MetaMask</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div *ngIf="pot && association && txs.length > 0 && !success" class="card"
+          style="width: 50rem; margin-left: auto; margin-right: auto;margin-top: 2rem">
+          <div class="card-body">
+            <div *ngFor="let tx of txs">
+              <div style="display: flex;justify-content: space-between;align-items: center;border-bottom: 1px solid gray;padding: 10px;">
+                <div>
+                  <h6 style="margin-bottom: 0px;">{{tx.name}}</h6>
+                  <small><a [href]="'https://testnet-explorer-v2.xai-chain.net/tx/'+tx.hash">See in explorer</a></small>
+                </div>
+                <div>
+                  {{!tx.finished ? 'running' : 'ended'}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

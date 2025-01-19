@@ -1,0 +1,116 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/colors' as *;
+
+
+/*
+*****
+11. Section Title
+*************************
+*/
+
+.sub_title {
+    font-size: 18px;
+    color: #f15b43;
+    line-height: 2.2;
+    font-weight: 400;
+    & i {
+        margin-right: 15px;
+        font-size: 17px;
+      }
+
+      &:is(.sub_title_2) {
+          font-family: "Roboto";
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 2.7;
+          text-decoration: none;
+      }
+  }
+  .title {
+      color: var(--clr-body-heading-color);
+      font-size: 60px;
+      @media #{$xl} {
+        font-size: 45px;
+      }
+      @media #{$lg} {
+        font-size: 35px;
+      }
+      @media #{$md} {
+        font-size: 50px;
+      }
+
+      @media #{$xs} {
+        font-size: 24px;
+      }
+      @media #{$sm} {
+        font-size: 40px;
+      }
+
+      &:is(.title_2) {
+        font-size: 55px;
+        @media #{$xl} {
+          font-size: 45px;
+        }
+        @media #{$lg} {
+          font-size: 35px;
+        }
+        @media #{$md} {
+          font-size: 35px;
+        }
+        @media #{$sm} {
+          font-size: 25px;
+        }
+        @media #{$xs} {
+          font-size: 23px;
+        }
+      }
+
+      
+  }
+
+  
+.section_title {
+  position: relative;
+  z-index: 1;
+  & .back_title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -65px;
+    transform: translateY(0);
+    font-size: 200px;
+    font-weight: 700;
+    background: -webkit-linear-gradient(#ffffff,#e3ecef);
+        background-clip: border-box;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    z-index: -1;
+    @media #{$xl} {
+      font-size: 160px;
+    }
+    @media #{$lg} {
+      font-size: 120px;
+      bottom: -40px;
+    }
+    @media #{$md} {
+      font-size: 100px;
+      bottom: -35px;
+    }
+    @media #{$xs} {
+      bottom: -25px;
+      font-size: 75px;
+    }
+
+  }
+}
+
+.choose_card_title {
+  font-size: 20px;
+}
+
+.donation_title {
+  font-size: 36px;
+    @media #{$xs} {
+      font-size: 23px;
+    }
+}

@@ -1,0 +1,202 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+
+
+/*
+*****
+25. Events
+*************************
+*/
+
+.events_img {
+    & img {
+        border-radius: 10px;
+      }
+}
+.events_content {
+    position: relative;
+    &:hover {
+        & .events_date {
+            animation: icon-bounce 0.8s 1;
+        }
+    }
+}
+.events_inner_text {
+
+    &:is(.has_abs_card) {
+        padding-left: 180px;
+        padding-top: 30px;
+
+        @media #{$lg} {
+            padding-left: 160px;
+        }
+        
+        @media #{$xs} {
+            padding-left: 0px;
+        }
+    }
+    & h4 {
+        color: #fff;
+        font-size: 24px;
+
+        @media #{$xl} {
+            font-size: 22px;
+        }
+        @media #{$lg} {
+            font-size: 18px;
+        }
+        @media #{$xs} {
+            font-size: 17px;
+        }
+        @media #{$sm} {
+            font-size: 22px;
+        }
+
+        &:hover {
+            color: var(--clr-theme-1);
+        }
+
+        & a {
+            text-decoration: none;
+          }
+      }
+  }
+
+  .date_card {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.06);
+
+    @media #{$lg} {
+        width: 100px;
+        height: 100px;
+    }
+    &:is(.feed_card) {
+        width: 80px;
+        height: 90px;
+        &:is(.nhas_abs) {
+            position: absolute;
+            right: 38px;
+            top: -45px;
+            z-index: 2;
+            @media #{$xl, $md, $xs} {
+                right: 30px;
+            }
+        }
+    }
+    &:is(.has_abs) {
+        position: absolute;
+        left: 0;
+        top: -20px;
+        z-index: 1;
+        margin-left: 30px;
+        margin-right: 30px;
+
+        @media #{$xs} {
+            position: static;
+            margin: 0;
+            margin-top: 30px;
+        }
+    }
+    & .events_date {
+        font-size: 60px;
+        font-weight: 700;
+        color: var(--clr-theme-1);
+        line-height: 1;
+
+        @media #{$lg} {
+            font-size: 50px;
+        }
+
+        &:is(.feed_date) {
+            font-size: 40px;
+        }
+      }
+      & .events_month {
+        font-size: 14px;
+        text-transform: capitalize;
+        font-weight: 700;
+        color: #142645;
+    }
+
+
+}
+
+
+
+
+
+
+
+.events_feed_wrapper {
+    margin-right: 65px;
+    margin-left: 30px;
+
+    @media #{$xl} {
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+    @media #{$lg} {
+        margin-right: 0px;
+        margin-left: 30px;
+    }
+    @media #{$xs} {
+        margin: 0;
+    }
+}
+
+.events_feed_sigle {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #263c60;
+    @media #{$xs} {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    &:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: 0;
+    }
+
+    &:hover {
+        & .events_date {
+            animation: icon-bounce 0.8s 1;
+        }
+    }
+}
+
+.efeed_card {
+    margin-right: 30px;
+    background-color: #0c1931;
+    @media #{$xs} {
+        margin-bottom: 25px;
+    }
+
+
+    & .events_month {
+        color: #6a7a98;
+    }
+}
+
+
+.has_abs_card {
+    position: relative;
+}
+
+
+.category_name {
+    font-size: 14px;
+    &:is(.theme-1) {
+        color: var(--clr-theme-1);
+    }
+
+}

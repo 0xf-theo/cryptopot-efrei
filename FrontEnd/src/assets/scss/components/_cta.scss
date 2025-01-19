@@ -1,0 +1,202 @@
+
+
+
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+
+
+/*
+*****
+09. Cta
+*************************
+*/
+
+
+.sub_title_2 {
+    display: block;
+	font-size: 14px;
+	line-height: 32px;
+	color: var(--clr-theme-2);
+}
+.section_title_2 {
+    font-size: 50px;
+    line-height: 1;
+	color: var(--clr-common-white);
+	@media #{$xs} {
+		font-size: 38px;
+	}
+}
+
+
+
+
+
+.donar_input {
+	height: 60px;
+	background: transparent;
+	border-radius: 50px;
+	padding: 15px 15px;
+	padding-left: 30px;
+	line-height: 60px;
+	display: inline-block;
+	border: 2px solid var(--clr-common-border-color);
+    width: 166px;
+	color: #fff;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+	
+	&:focus {
+		border-color: var(--clr-common-white);
+		transition: 0.9s;
+	}
+	&:last-child {
+		@media #{$xs} {
+			margin-right: 0;
+		}
+		@media #{$sm} {
+			margin-right: 15px;
+		}
+	}
+	@media #{$xs} {
+		width: 135px;
+	}
+}
+.donar_section {
+    & input {
+        @include placeholder {
+            color: #758394;
+			font-size: 14px;
+        }
+    }
+}
+
+.currency {
+	min-width: 60px;
+	height: 60px;
+	display: inline-block;
+	line-height: 60px;
+	border-radius: 50px;
+	text-align: center;
+	padding: 0 20px;
+	border: 2px solid var(--clr-common-border-color);
+	background: #35485f;
+    font-size: 14px;
+    font-weight: 700;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+
+	&:is(.custom_padd) {
+		padding: 0 30px;
+		@media #{$xs} {
+			padding: 0 27px;
+		}
+		@media #{$sm} {
+			padding: 0 30px;
+		}
+	}
+	&:is(.funfact) {
+		border-color: #f5f5f5;
+		background-color: transparent;
+		color: #142645;
+		margin-right: 5px;
+
+		@media #{$xs} {
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			margin-right: 2px;
+			padding: 0;
+		}
+
+		@media #{$sm} {
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+			margin-right: 5px;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+		&:hover {
+			background-color: var(--clr-theme-2);
+			color: #fff;
+		}
+	}
+	&:hover {
+		background-color: var(--clr-theme-2);
+		border-color: var(--clr-theme-2);
+	}
+}
+.donation {
+	@media #{$md} {
+		width: 300px;
+	}
+	@media #{$xs} {
+		width: 300px;
+	}
+
+}
+
+
+/*  cta fluid area   */
+
+.container_spance0 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.cta_single {
+	
+	padding: 55px 60px;
+	height: 100%;
+
+	@media #{$xxl, $xs} {
+		padding: 55px 30px;
+	}
+
+	&:is(.cta_color_1) {
+		background-color: #d13942;
+	}
+
+	&:is(.cta_color_2) {
+		background-color: #142645;
+	}
+	& p {
+		font-size: 30px;
+		color: #fff;
+		line-height: 1.33;
+		margin-bottom: 52px;
+
+		@media #{$xxl, $xs} {
+			font-size: 25px;
+			margin-bottom: 50px;
+		}
+
+	  }
+  }
+
+  .cta_sub {
+	font-size: 16px;
+	color: #fff;
+	margin-bottom: 20px;
+	display: block;
+  }
+
+  .video_wrapper_3 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	background-size: cover;
+	background-position: center center;
+	padding: 140px 0;
+	& .play_btn {
+		background-color: #fff;
+		color: var(--clr-theme-1);
+		transition: 0.5s;
+		&:hover {
+			background-color: var(--clr-theme-1);
+			color: var(--clr-common-white);
+		}
+	  }
+  }

@@ -1,0 +1,160 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+
+
+/*
+*****
+17. Iconbox
+*************************
+*/
+
+.single_iconbox {
+    display: block;
+    text-decoration: none;
+    & i {
+        width: 170px;
+        height: 170px;
+        display: inline-block;
+        line-height: 190px;
+        text-align: center;
+        background-color: var(--clr-common-white);
+        color: var(--clr-body-heading-color);
+        margin-bottom: 23px;
+        border-radius: 50%;
+        font-size: 90px;
+        transition: 0.5s;
+        box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.06);
+
+        @media #{$lg, $xs} {
+            width: 120px;
+            height: 120px;
+            line-height: 130px;
+            font-size: 60px;
+        }
+    }
+
+    &:is(.theme-1) {
+        & i {
+            color: var(--clr-theme-1);
+        }
+        &:hover {
+            & i {
+                color: var(--clr-common-white);
+                background-color: var(--clr-theme-1);
+            }
+
+            & .icon_title {
+                color: var(--clr-theme-1);
+            }
+        }
+    }
+
+    
+    &:is(.theme-2) {
+        & i {
+            color: var(--clr-theme-2);
+        }
+        &:hover {
+            & i {
+                color: var(--clr-common-white);
+                background-color: var(--clr-theme-2);
+            }
+
+            & .icon_title {
+                color: var(--clr-theme-2);
+            }
+        }
+    }
+
+    
+    &:is(.theme-3) {
+        & i {
+            color: var(--clr-theme-3);
+        }
+        &:hover {
+            & i {
+                color: var(--clr-common-white);
+                background-color: var(--clr-theme-3);
+            }
+
+            & .icon_title {
+                color: var(--clr-theme-3);
+            }
+        }
+    }
+
+    
+    &:is(.theme-4) {
+        & i {
+            color: var(--clr-theme-4);
+        }
+        &:hover {
+            & i {
+                color: var(--clr-common-white);
+                background-color: var(--clr-theme-4);
+            }
+
+            & .icon_title {
+                color: var(--clr-theme-4);
+            }
+        }
+    }
+
+    
+    &:is(.theme-5) {
+        & i {
+            color: var(--clr-theme-5);
+        }
+        &:hover {
+            & i {
+                color: var(--clr-common-white);
+                background-color: var(--clr-theme-5);
+            }
+
+            & .icon_title {
+                color: var(--clr-theme-5);
+            }
+        }
+    }
+
+    
+    &:is(.theme-6) {
+        & i {
+            color: var(--clr-theme-6);
+        }
+        &:hover {
+            & i {
+                color: var(--clr-common-white);
+                background-color: var(--clr-theme-6);
+            }
+
+            & .icon_title {
+                color: var(--clr-theme-6);
+            }
+        }
+    }
+
+
+    &:hover {
+        & i {
+            animation: icon-bounce 0.8s 1;
+        }
+    }
+
+
+}
+
+.icon_title {
+    font-size: 20px;
+    transition: 0.3s;
+
+    @media #{$xl, $md, $xs} {
+        font-size: 16px;
+    }
+
+    @media #{$lg} {
+        font-size: 14px;
+    }
+
+
+}

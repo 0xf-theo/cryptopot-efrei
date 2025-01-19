@@ -1,0 +1,473 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+
+
+/*
+*****
+15. Feature Event
+*************************
+*/
+
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+.mb-17 {
+  margin-bottom: 18px;
+}
+.event_border {
+    border-bottom: 1px solid var(--clr-soft-grey);
+}
+.f_event_area:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: var(--clr-common-white);
+  opacity: 0.9;
+}
+.f_event_area > * {
+  position: relative;
+  z-index: 2;
+}
+
+.fbooking {
+  width: 243px;
+  padding-left: 60px;
+  display: flex;
+  align-items: center;
+  @media #{$lg, $xl} {
+    padding-left: 30px;
+    width: 230px;
+  }
+  @media #{$md, $xs} {
+    padding-left: 15px;
+    width: 170px;
+  }
+}
+
+
+.fdate {
+  width: 140px;
+  @media #{$lg} {
+    width: 110px;
+  }
+  @media #{$md, $xs} {
+    width: 70px;
+  }
+}
+
+
+.fauthor {
+  flex: .7 0 0%;
+  padding-left: 60px;
+  display: flex;
+  align-items: center;
+  @media #{$lg, $xl} {
+    padding-left: 30px;
+  }
+  @media #{$xs, $md} {
+    padding-left: 15px;
+    flex: 1 0 0%;
+  }
+}
+
+
+.fcontent {
+  flex: 1 0 0%;
+  padding-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media #{$lg, $xl} {
+    padding-left: 30px;
+  }
+  @media #{$xs, $md} {
+    padding-left: 15px;
+  }
+  & .sub_title {
+    font-size: 18px;
+    text-decoration: none;
+    &:is(.theme-1) {
+      color: var(--clr-theme-1);
+    }
+    &:is(.theme-2) {
+      color: var(--clr-theme-2);
+    }
+    &:is(.theme-3) {
+      color: var(--clr-theme-3);
+    }
+  }
+  & .title {
+    font-size: 28px;
+    transition: 0.3s;
+    &:is(.theme-1) {
+      &:hover {
+        color: var(--clr-theme-1);
+      }
+    }
+
+    &:is(.theme-2) {
+      &:hover {
+        color: var(--clr-theme-2);
+      }
+    }
+
+    &:is(.theme-3) {
+      &:hover {
+        color: var(--clr-theme-3);
+      }
+    }
+
+    @media #{$lg} {
+      font-size: 23px;
+    }
+
+
+    @media #{$xs, $md} {
+      font-size: 16px;
+    }
+
+    &:hover {
+      color: var(--clr-theme-1);
+    }
+  }
+}
+
+
+.fevent_heading {
+  font-size: 18px;
+  padding: 27px 60px;
+  color: var(--clr-common-white);
+  @media #{$lg, $xl} {
+    padding: 20px 30px;
+  }
+  @media #{$xs, $md} {
+    padding: 20px 25px;
+  }
+}
+
+
+.single_fdate {
+  width: 140px;
+  height: 140px;
+  color: var(--clr-common-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @media #{$lg} {
+    width: 110px;
+    height: 110px;
+  }
+  @media #{$md, $xs} {
+    width: 70px;
+    height: 70px;
+  }
+
+  
+  & span {
+    text-transform: uppercase;
+    font-weight: 700;
+    @media #{$md, $xs} {
+      font-size: 12px;
+    }
+  }
+
+  & .date {
+    font-size: 50px;
+    font-weight: 100;
+    line-height: 1;
+    color: #fff;
+    opacity: 1;
+    @media #{$lg} {
+      font-size: 40px;
+    }
+    @media #{$md, $xs} {
+      font-size: 25px;
+    }
+  }
+
+  &:is(.theme-1) {
+    background-color: var(--clr-theme-1);
+  }
+
+  &:is(.theme-2) {
+    background-color: var(--clr-theme-2);
+  }
+
+  
+  &:is(.theme-3) {
+    background-color: var(--clr-theme-3);
+  }
+
+}
+
+.booking_btn.g_btn {
+  border-color: #eaeaea;
+}
+
+.fauthor_address {
+  padding-left: 20px;
+  font-size: 16px;
+  color: var(--clr-body-heading-color);
+  
+  @media #{$lg, $xl} {
+    padding-left: 10px;
+    font-size: 15px;
+  }
+  @media #{$xs, $md} {
+    padding-left: 10px;
+    font-size: 15px;
+  }
+
+  & a {
+    text-decoration: none;
+  }
+
+  & .fauthor_location {
+      padding-left: 15px;
+      color: var(--clr-body-text-color);
+      @media #{$lg, $xl} {
+        padding-left: 0px;
+        display: block;
+      }
+      @media #{$xs, $md} {
+        font-size: 13px;
+        padding-left: 0px;
+        display: block;
+      }
+
+      & i {
+        color: var(--clr-body-heading-color);
+        margin-right: 3px;
+      }
+    }
+}
+
+.fdot {
+  & img {
+    max-width: 50px;
+    border-radius: 50%;
+  }
+}
+
+.booking_btn {
+  border: 2px solid var(--clr-soft-grey);
+  color: var(--clr-body-heading-color);
+  text-decoration: none;
+  height: 56px;
+  font-weight: 700;
+  line-height: 52px;
+  width: 100%;
+  text-align: center;
+
+  @media #{$xs, $md} {
+    font-size: 14px;
+  }
+
+  &:is(.theme-1) {
+    & span {
+      background-color: var(--clr-theme-1);
+    }
+    &:hover {
+      border-color: var(--clr-theme-1);
+      color: var(--clr-common-white);
+    }
+  }
+
+  &:is(.theme-2) {
+    & span {
+      background-color: var(--clr-theme-2);
+    }
+    &:hover {
+      border-color: var(--clr-theme-2);
+      color: var(--clr-common-white);
+    }
+  }
+
+  
+  &:is(.theme-3) {
+    & span {
+      background-color: var(--clr-theme-3);
+    }
+    &:hover {
+      border-color: var(--clr-theme-3);
+      color: var(--clr-common-white);
+    }
+  }
+
+
+}
+
+
+.single_fevent {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+  @media #{$md, $lg, $xl, $xs} {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+
+}
+
+
+.single_fevent_wrapper {
+  background-color: var(--clr-common-white);
+  padding: 20px 60px;
+  @media #{$lg, $xl} {
+    padding: 0px 30px;
+  }
+  @media #{$xs, $md} {
+    padding: 0px 25px;
+  }
+
+}
+
+
+
+.fevent_table {
+  overflow-x: auto;
+  & .fevent_wrapper {
+    @media #{$xs} {
+      min-width: 770px
+    }
+
+  }
+}
+
+
+
+
+
+.fevent_heading_wrapper {
+  @media #{$xs, $md} {
+    font-size: 16px;
+  }
+}
+
+
+/*  Single Event page CSS  */
+
+.details_meta_abs {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.06);
+
+  @media #{$xs, $lg} {
+    box-shadow: none;
+    position: static;
+  }
+}
+
+.details_img_meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 40px;
+  padding: 33px 40px;
+  align-items: center;
+
+  @media #{$lg} {
+    margin: 0px;
+    padding: 10px 30px;
+    padding-top: 40px;
+    border-right: 2px solid #eee;
+    border-left: 2px solid #eee;
+  }
+
+  @media #{$md, $xl} {
+    margin: 0 30px;
+  }
+
+  @media #{$xs} {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 25px;
+    margin: 0;
+    border-right: 2px solid #eee;
+    border-left: 2px solid #eee;
+  }
+
+
+
+}
+
+.donar_post_event_details {
+  flex: 0 0 auto;
+  margin-right: 25px;
+  margin-bottom: 20px;
+
+  @media #{$xs} {
+    margin-right: 0;
+  }
+
+}
+
+.donar_category {
+  flex: 0 0 auto;
+  margin-right: 25px;
+  margin-bottom: 20px;
+
+  @media #{$xs} {
+    margin-right: 0;
+    
+  }
+}
+
+.meta_speaker {
+  display: flex;
+  flex: 0 0 auto;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  @media #{$xs} {
+    margin-right: 0;
+    
+  }
+}
+
+.details_meta_button {
+  flex: 1 0 0%;
+}
+
+.details_meta_button {
+  & .g_btn {
+    width: 100%;
+
+    @media #{$lg} {
+      width: auto;
+    }
+  }
+}
+
+.donar_time {
+  font-size: 14px;
+  text-decoration: none;
+  &:is(.theme-8) {
+    & i {
+      color: var(--clr-theme-8);
+    }
+    &:hover {
+      color: var(--clr-theme-8);
+    }
+  }
+}
+
+
+.speaker_img {
+  margin-right: 12px;
+}
+
+.speaker_info .donar_name {
+  line-height: 1;
+  margin-bottom: 0;
+}
+

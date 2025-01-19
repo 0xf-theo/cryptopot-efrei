@@ -1,0 +1,40 @@
+<app-page title="Sign Up">
+
+    <section class="about_area pt-120">
+        <div class="signup-box">
+             <div id="container">
+                    <!-- zone de connexion -->
+                    
+                <form  method="POST">
+                <h1>Register</h1>
+                <div class="user-box">
+                    <input type="text" name="name" ngModel required>
+                    <label>Nom </label>
+                 </div>
+                 <div class="user-box">
+                    <input type="text" name="first_name" ngModel required>
+                    <label><b>Prénom </b></label>
+                 </div>
+                 <div class="user-box">
+
+                    <input type="email" id="mail" name="mail" ngModel required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
+                    <label>Adresse-mail</label>
+                  </div>
+                  <div class="user-box">
+                    <input type="password" name="password" ngModel required pattern="(?=.*[A-Z]).{8,}">
+                    <small>Le mot de passe doit contenir au moins 8 caractères.</small><br>
+                    <label>Password</label>
+                  </div>
+                   
+                <button class="g_btn theme1_bg to_right2 slider_btn i_center rad-30 p-35" type="submit" id='submit' value='SIGN UP' >SIGN UP</button>
+                   
+                </form>
+
+                <div class="card_info">
+                    <p>You already have an account? <a routerLink="/login">Sign in</a></p>
+                </div>
+                </div>
+        </div>
+    </section>
+
+</app-page>

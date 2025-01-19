@@ -1,0 +1,325 @@
+@use '../abstracts/variables' as *;
+
+
+
+/*
+*****
+22. Circular Progress
+*************************
+*/
+
+.progress_wrapper {
+    width: 100px;
+    text-align: center;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50px 50px 0 0;
+    display: inline-block;
+    position: absolute;
+    left: 40px;
+    bottom: 0;
+    @media #{$lg} {
+      left: 28px;
+    }
+    @media #{$md} {
+      left: 33px;
+    }
+    @media #{$xs} {
+      left: 27px;
+    }
+
+    &:is(.pbar_1) {
+        background-color: #5fb35b;
+
+        & .progress_circle {
+            &:after {
+                border-color: #6fbf6b;
+            }
+        }
+    }
+
+    &:is(.pbar_2) {
+        background-color: #f15b43;
+
+        & .progress_circle {
+            &:after {
+                border-color: #f76c55;
+            }
+        }
+    }
+
+    &:is(.pbar_3) {
+        background-color: #65c9bb;
+
+        & .progress_circle {
+            &:after {
+                border-color: #83d7cb;
+            }
+        }
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+$borderWidth: 6px;
+$animationTime: .5s;
+$border-color-default: #6fbf6b;
+$border-color-fill: #fff;
+$size: 70px;
+$howManySteps: 100; //this needs to be even. 
+
+.progress_circle {
+  width: $size;
+  height: $size;
+  line-height: $size;
+  background: none;
+  margin: 0 auto;
+  box-shadow: none;
+  position: relative;
+  margin-bottom: 10px;
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(0.93);
+  }
+  > span {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+  .progress-left {
+    left: 1px;
+  }
+  .progress-bar {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: $borderWidth;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+    border-color: $border-color-fill;
+  }
+  .progress-left {
+    & .progress-bar {
+      left: 100%;
+      border-top-right-radius: ($size/2);;
+      border-bottom-right-radius: ($size/2);;
+      border-left: 0;
+      -webkit-transform-origin: center left;
+      transform-origin: center left;
+      //animation: loading-2 1.5s linear forwards 1.8s;
+    }
+  }
+  .progress-right {
+    right: 0;
+    & .progress-bar {
+      left: -100%;
+      border-top-left-radius: ($size/2);;
+      border-bottom-left-radius: ($size/2);;
+      border-right: 0;
+      -webkit-transform-origin: center right;
+      transform-origin: center right;
+      //animation: loading-1 1.8s linear forwards;
+    }
+  }
+  .progress-value {
+    display: flex;
+    border-radius: 50%;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-weight: 300;
+    div {
+      //margin-top: 10px;
+    }
+    span {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+}
+
+
+
+
+
+
+
+.mission_progress_wrapper {
+  display: flex;
+
+  @media #{$xs} {
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .mission_progress_single {
+    flex: 0 0 33.33%;
+
+    @media #{$lg} {
+      flex: 0 0 20%;
+    }
+
+    @media #{$xs} {
+      margin-bottom: 40px;
+    }
+
+    &:last-child {
+      @media #{$xs} {
+        margin-bottom: 0;
+      }
+    }
+      & .progress_circle {
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+        margin: 0;
+        & .progress-left {
+          & .progress-bar {
+            border-top-right-radius: 75px;
+            border-bottom-right-radius: 75px;
+            border-width: 10px;
+          }
+        }
+        & .progress-right {
+          & .progress-bar {
+            border-top-left-radius: 75px;
+            border-bottom-left-radius: 75px;
+            border-width: 10px;
+          }
+        }
+
+        &:is(.theme-1) {
+            &:after {
+                border-color: var(--clr-theme-1);
+                transform: scale(0.95);
+            }
+            & .progress-bar {
+              border-color: var(--clr-theme-1);
+            }
+            & span {
+              color: var(--clr-theme-1);
+            }
+        }
+
+                
+        &:is(.theme-2) {
+          &:after {
+              border-color: var(--clr-theme-2);
+              transform: scale(0.95);
+          }
+          & .progress-bar {
+            border-color: var(--clr-theme-2);
+          }
+          & span {
+            color: var(--clr-theme-2);
+          }
+      }
+
+      &:is(.theme-3) {
+        &:after {
+            border-color: var(--clr-theme-3);
+            transform: scale(0.95);
+        }
+        & .progress-bar {
+          border-color: var(--clr-theme-3);
+        }
+
+        & span {
+          color: var(--clr-theme-3);
+        }
+    }
+
+
+      }
+  }
+}
+
+
+.progress-value {
+  & .value {
+    font-size: 50px;
+    font-weight: 700;
+    color: #263b5c;
+    & span {
+      font-size: 20px;
+      display: inline-block;
+    }
+  }
+}
+.progress_text {
+	padding-left: 18px;
+	font-size: 16px;
+	margin-top: 20px;
+  display: inline-block;
+}
+
+
+/* This for loop creates the necessary css animation names 
+Due to the split circle of progress-left and progress right, we must use the animations on each side. 
+*/
+@for $i from 1 through $howManySteps {
+	$stepName: ($i*(100 / $howManySteps));
+
+	//animation only the left side if below 50%
+	@if $i <= ($howManySteps/2) { 
+		.progress_circle[data-percentage="#{$stepName}"] {
+			.progress-right .progress-bar {
+				 animation: loading-#{$i} $animationTime linear forwards;
+			}
+			.progress-left .progress-bar {animation: 0;}
+		}
+	}
+	//animation only the right side if above 50%
+	@if $i > ($howManySteps/2)  {  
+		.progress_circle[data-percentage="#{$stepName}"] {
+			.progress-right .progress-bar {
+				animation: loading-#{($howManySteps/2)} $animationTime linear forwards; //set the animation to longest animation
+			}
+			.progress-left .progress-bar {
+      animation: loading-#{$i - ($howManySteps/2)} $animationTime linear forwards $animationTime;
+    }
+		}
+	}
+}
+
+//animation
+@for $i from 1 through ($howManySteps/2) { 
+	$degrees: (180/($howManySteps/2));
+	$degrees: ($degrees*$i);
+	@keyframes loading-#{$i}{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate($degrees);
+			transform: rotate(#{$degrees}deg);
+    }
+	}
+}

@@ -1,0 +1,64 @@
+<app-page title="Apply now">
+
+    <section class="about_area pt-120">
+        <div class="about_white_bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="section_title text-center mb-60">
+                            <span class="sub_title sub_title_2">join us</span>
+                            <h3 class="title title_2">Sign up your pot for free</h3>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <p>At CryptoPot, we believe that every charitable organization should have access to the
+                            benefits of using cryptocurrencies
+                            for donations. That's why we're excited to offer organizations the opportunity to join our
+                            platform.</p>
+
+                        <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    [(ngModel)]="formData.name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    [(ngModel)]="formData.mail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNumber">Phone Number</label>
+                                <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber"
+                                    [(ngModel)]="formData.phone_number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea class="form-control" id="address" name="address"
+                                    [(ngModel)]="formData.address" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="activity">Activity</label>
+                                <input type="text" class="form-control" id="activity" name="activity"
+                                    [(ngModel)]="formData.activity" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="rna">RNA</label>
+                                <input type="text" class="form-control" id="rna" name="rna"
+                                    [(ngModel)]="formData.rna" required>
+                            </div>
+                            <br>
+
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary btn-lg mx-auto">Submit</button>
+                            </div>
+                        </form>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</app-page>

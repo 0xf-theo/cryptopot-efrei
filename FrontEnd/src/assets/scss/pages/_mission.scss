@@ -1,0 +1,135 @@
+
+
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+
+
+/*
+*****
+08. Mission
+*************************
+*/
+
+
+.about_wrapper {
+  @media #{$xs, $md, $lg} {
+    padding-left: 0;
+  }
+
+  & :is(.title_2) {
+    &:is(.no_br) {
+      @media #{$xs, $md, $lg} {
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.about_signle_video {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+
+    & img {
+      transition: 0.5s;
+    }
+
+    &:hover {
+      & img {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .video_icon {
+    width: 100px;
+    height: 100px;
+    background-color: var(--clr-theme-1);
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+    z-index: 1;
+    & i {
+        font-size: 16px;
+        color: var(--clr-common-white);
+        font-weight: 700;
+        margin-left: 5px;
+        transition: 0.3s;
+      }
+    &:hover {
+        background-color: var(--clr-common-white);
+        & i {
+            color: var(--clr-theme-1);
+        }
+      }
+  }
+
+
+  
+  
+.about_subscribe {
+    position: relative;
+    & > img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: calc(50% - 15px);
+        object-fit: cover;
+
+        @media #{$xs, $md, $lg} {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          z-index: -1;
+        }
+      }
+  }
+
+
+
+
+
+
+
+  
+
+.about_subscribe {
+  position: relative;
+  z-index: 1;
+  &:before {
+      @media #{$xs, $md, $lg} {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background-color: #000;
+        opacity: 0.5;
+      }
+  }
+}
+
+.subscribe_mission {
+  @media #{$xs, $md, $lg} {
+    position: relative;
+    color: #fff;
+  }
+
+  & :is(.title_2) {
+    &:is(.text_white) {
+      @media #{$xs, $md, $lg} {
+        color: #fff;
+      }
+    }
+  }
+}

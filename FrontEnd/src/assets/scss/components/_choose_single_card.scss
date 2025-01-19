@@ -1,0 +1,172 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+
+/*
+*****
+14. Choose Single Card
+*************************
+*/
+
+  .choose_single_card {
+    border: 2px solid #eeeeee;
+    padding: 35px 45px;
+    padding-top: 15px;
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    overflow: hidden;
+    @include transition(0.5s);
+
+
+
+    @media #{$xl} {
+      padding: 20px 30px;
+      padding-top: 0px;
+    }
+    @media #{$xs} {
+      padding: 35px 25px;
+      padding-top: 15px;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 23px 29px rgba(0,0,0,.09);
+    }
+
+    & .choose_abs {
+      position: absolute;
+      right: -77px;
+      top: -77px;
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      border-radius: 50%;
+      display: flex;
+      align-items: flex-end;
+
+      @media #{$xl, $sm} {
+        right: -90px;
+        top: -90px;
+      }
+
+      & i {
+        font-size: 60px;
+        position: relative;
+        z-index: 9;
+        @include transition(.3s);
+        padding-bottom: 25px;
+        padding-left: 40px;
+        color: var(--clr-common-white);
+
+        @media #{$xl, $sm} {
+          font-size: 45px;
+          padding-bottom: 30px;
+        }
+      }
+
+      &:is(.theme-2) {
+        background-color: var(--clr-theme-2);
+        & i {
+          color: var(--clr-common-white);
+        }
+
+      }
+      &:is(.theme-3) {
+        background-color: var(--clr-theme-3);
+
+        & i {
+          color: var(--clr-common-white);
+        }
+
+
+      }
+      &:is(.theme-4) {
+        background-color: var(--clr-theme-5);
+
+        & i {
+          color: var(--clr-common-white);
+        }
+
+
+      }
+      &:is(.theme-5) {
+        background-color: var(--clr-theme-8);
+
+        & i {
+          color: var(--clr-common-white);
+        }
+
+
+      }
+
+    }
+
+      @at-root {
+        .card_number {
+          font-size: 80px;
+          font-weight: 700;
+          -webkit-text-fill-color: var(--clr-common-white);
+          -webkit-text-stroke: 1px var(--clr-theme-2);
+          line-height: 1.6;
+          &:is(.clr-theme-3) {
+              -webkit-text-stroke: 1px var(--clr-theme-3);
+          }
+          &:is(.clr-theme-4) {
+              -webkit-text-stroke: 1px var(--clr-theme-5);
+          }
+          &:is(.clr-theme-5) {
+              -webkit-text-stroke: 1px var(--clr-theme-8);
+          }
+
+
+          &:is(.feature_number) {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            position: relative;
+            font-size: 50px;
+            display: inline-block;
+            line-height: 100px;
+            border-radius: 50%;
+            box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.06);
+
+            &:is(.theme-1) {
+              -webkit-text-stroke: 1px var(--clr-theme-1);
+            }
+
+            &:is(.theme-2) {
+              -webkit-text-stroke: 1px var(--clr-theme-2);
+            }
+
+            &:is(.theme-3) {
+              -webkit-text-stroke: 1px var(--clr-theme-3);
+            }
+
+          }
+
+
+        }
+      }
+
+
+
+    & .choose_card_content {
+      & p {
+        font-size: 16px;
+        line-height: 30px;
+        margin-bottom: 0;
+      }
+    }
+    &:hover {
+      & :is(.choose_abs) {
+
+        & i {
+          color: var(--clr-common-white);
+          animation: icon-bounce 0.8s infinite;
+
+        }
+      }
+    }
+  }
+

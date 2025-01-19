@@ -1,0 +1,233 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+
+
+
+/*
+*****
+20. Team
+*************************
+*/
+
+
+.member_social {
+    & a {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        background-color: var(--clr-soft-grey);
+        border-radius: 10px 10px 0 0;
+        text-align: center;
+        line-height: 50px;
+        color: var(--clr-body-heading-color);
+        margin: 0px 3px;
+        @media #{$xs} {
+
+        }
+        @media #{$sm} {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            margin: 0 3px;
+        }
+
+        &:is(.facebook) {
+            &:hover {
+                background-color: #385398;
+                color: var(--clr-common-white);
+            }
+        }
+
+        
+        &:is(.twitter) {
+            &:hover {
+                background-color: #55acee;
+                color: var(--clr-common-white);
+            }
+        }
+        
+        &:is(.behance) {
+            &:hover {
+                background-color: #0057FF;
+                color: var(--clr-common-white);
+            }
+        }
+        
+        &:is(.youtube) {
+            &:hover {
+                background-color: #C3271A;
+                color: var(--clr-common-white);
+            }
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.single_team {
+    background-color: var(--clr-soft-gray-bg);
+    padding: 40px 40px 0 40px;
+    border-radius: 10px 10px 0 0;
+
+    @media #{$lg} {
+        padding: 25px 25px 0 25px;
+    }
+    @media #{$xs} {
+        padding: 25px 25px 0 25px;
+    }
+
+    & .designation {
+        margin-bottom: 10px;
+        display: block;
+        color: var(--clr-theme-2);
+        font-size: 16px;
+    }
+
+    & .member_name {
+        margin-bottom: 25px;
+        font-size: 24px;
+        &:hover {
+            color: var(--clr-theme-2);
+        }
+    }
+}
+
+.team_thumb {
+    margin-bottom: 25px;
+}
+
+
+
+/*  Team single page CSS  */
+
+
+.team_single_info_wrapper {
+	@media #{$xl, $lg} {
+        padding-left: 25px;
+    }
+    @media #{$xs, $md} {
+        padding-left: 0px;
+    }
+}
+
+
+
+.team_person_info {
+    & a {
+        font-size: 18px;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 15px;
+
+        @media #{$xl, $xs, $lg} {
+            font-size: 16px;
+        }
+        
+
+
+        & strong {
+            color: var(--clr-body-heading-color);
+            transition: 0.3s;
+
+        }
+
+        &:hover {
+            & strong {
+                color: var(--clr-theme-1);
+            }
+        }
+    }
+}
+.team_info_social {
+    & a {
+    display: inline-block;
+    color: #b9b9b9;
+    margin-right: 15px;
+
+
+    
+    &:is(.facebook) {
+        &:hover {
+            color: #385398;
+        }
+    }
+
+    
+    &:is(.twitter) {
+        &:hover {
+            color: #55acee;
+        }
+    }
+    
+    &:is(.google) {
+        &:hover {
+            color: #F70000;
+        }
+    }
+    
+    &:is(.pinterest) {
+        &:hover {
+            color: #C51F26;
+        }
+    }
+
+
+
+    }
+}
+
+.team_single_img {
+    @media #{$xs, $md} {
+        margin-bottom: 30px;
+    }
+}
+
+.first_letter {
+    display: inline-block;
+    font-size: 80px;
+    background-color: var(--clr-theme-2);
+    flex: 0 0 115px;
+    text-align: center;
+    height: 115px;
+    margin-right: 50px;
+    color: var(--clr-common-white);
+    transform: translateY(8px);
+
+    @media #{$xs, $md} {
+        margin-bottom: 20px;
+    }
+}
+.team_person_description {
+    &:is(.d_flex) {
+        display: flex;
+
+        @media #{$xs, $md} {
+            flex-wrap: wrap;
+        }
+    }
+    & p {
+        font-size: 18px;
+        line-height: 1.77;
+
+        @media #{$xs} {
+            font-size: 16px;
+        }
+    }
+}
+
+
+.team_progress_wrapper {
+    & span {
+        font-size: 16px;
+        color: var(--clr-body-heading-color);
+        font-weight: 700;
+    }
+}
+  
+  

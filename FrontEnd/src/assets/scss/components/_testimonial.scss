@@ -1,0 +1,119 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+
+
+/*
+*****
+26. Testimonial
+*************************
+*/
+
+.space_t30 {
+    transform: translateY(30px);
+    @media #{$xs} {
+        transform: translateY(0);
+    }
+    @media #{$sm} {
+        transform: translateY(30px);
+    }
+}
+.testimonial_area {
+    @media #{$xs} {
+        padding-bottom: 90px;
+    }
+    z-index: 1;
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background-image: url(/src/assets/img/bg/bg_trans.png);
+        background-size: cover;
+        z-index: -1;
+
+    }
+}
+.testimonial_card {
+    background-color: #fff;
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+    border: 2px solid rgb(238, 238, 238);
+    padding: 38px;
+    padding-top: 36px;
+    @include transition(0.3s);
+    @media #{$md, $xs} {
+        padding: 30px;
+        padding-top: 28px;
+    }
+
+    &:hover {
+        box-shadow: 0 23px 49px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.testimonial_quote {
+    font-size: 18px;
+    margin-bottom: 25px;
+    @media #{$xs} {
+        font-size: 16px;
+    }
+    @media #{$md} {
+        font-size: 16px;
+    }
+}
+
+.testimonial_author {
+    display: flex;
+    align-items: center;
+}
+
+.author_img {
+    margin-right: 20px;
+    @media #{$md, $xs} {
+        margin-right: 15px;
+    }
+}
+
+.author_img img {
+    border-radius: 50%;
+}
+
+.review-icon a i {
+    font-size: 14px;
+    color: #f15b43;
+
+    @media #{$md, $xs} {
+        font-size: 12px;
+    }
+}
+
+.name_designation h5 {
+    font-size: 20px;
+    color: #263b5c;
+    margin-bottom: 0;
+    @media #{$md, $xs} {
+        font-size: 16px;
+    }
+
+    &:hover {
+        color: var(--clr-theme-1);
+    }
+}
+
+.name_designation h5 span {
+    font-size: 14px;
+    color: #777;
+    font-weight: 400;
+    @media #{$md} {
+        font-size: 13px;
+    }
+    @media #{$xs} {
+        font-size: 13px;
+        display: block;
+    }
+}
+  

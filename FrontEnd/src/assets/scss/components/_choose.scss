@@ -1,0 +1,238 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+
+
+
+/*
+*****
+21. Choose
+*************************
+*/
+
+
+.space_r60 {
+    padding-right: 60px;
+    @media #{$xs} {
+        padding-right: 0;
+    }
+  }
+  .space_l30 {
+    transform: translateX(30px);
+    @media #{$xs} {
+        transform: translateX(0px);
+    }
+  }
+.chooseus_wrapper {
+    @media #{$lg, $md, $xs} {
+        margin-bottom: 40px;
+    
+    }
+}
+
+.play_btn {
+    font-size: 14px;
+    color: #fff;
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    background-color: var(--clr-theme-1);
+    line-height: 120px;
+    text-align: center;
+    border-radius: 50%;
+
+    &:hover {
+        color: var(--clr-common-white);
+        animation: icon-bounce 0.8s 1;
+    }
+
+    &:focus {
+        color: var(--clr-common-white);
+    }
+
+    &:is(.focus_theme-1) {
+        &:focus {
+            background-color: var(--clr-theme-1);
+        }
+    }
+}
+
+
+
+
+
+
+.play_btn, .video_play {
+    position: relative;
+    &:after, &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "";
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #cccccc;
+        animation-name: popupBtn;
+        animation-duration: 1.8s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    &:before {
+        animation-delay: .8s;
+    }
+
+    &:is(.ab_4) {
+        background-color: var(--clr-common-white);
+        color: var(--clr-body-heading-color);
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        &:hover {
+            color: var(--clr-common-white);
+            background-color: var(--clr-theme-1);
+        }
+        &:after, &:before { 
+            border: 3px solid #fff;
+        }
+    }
+}
+
+
+@keyframes popupBtn{
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.6);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(2.2);
+        opacity: 0;
+    }
+}
+
+
+
+.chooseus_area {
+    position: relative;
+    z-index: 1;
+
+    @media #{$xs, $md, $lg, $xl} {
+        padding-bottom: 120px;
+    }
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background-image: url(/src/assets/img/bg/bg_trans.png);
+        z-index: -1;
+        background-size: cover;
+        background-position: left bottom;
+    }
+}
+.choose_card_text {
+
+    & .card_numb {
+        font-size: 60px;
+        color: #333;
+        font-weight: 700;
+        display: block;
+        line-height: 1;
+        margin-bottom: 10px;
+        @media #{$xs, $md}{
+            font-size: 45px;
+        }
+    }
+
+    & span {
+        font-size: 17px;
+        color: #999;
+
+        @media #{$xs, $md} {
+            font-size: 14px;
+        }
+    }
+}
+
+
+.choose_card {
+    position: relative;
+    background-color: #fff;
+    border: 2px solid #e2e2e2;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 27px 38px;
+    padding-left: 123px;
+    transition: 0.4s;
+
+    @media #{$xs, $md} {
+        padding: 27px 30px;
+        padding-left: 118px;
+    }
+
+    & i {
+        font-size: 60px;
+        position: absolute;
+        left: 38px;
+        top: 50%;
+        line-height: 1;
+        margin-top: -30px;
+
+        @media #{$xs, $md} {
+            left: 30px;
+        }
+    }
+
+    &:is(.theme-1) {
+        & i {
+            color: var(--clr-theme-1);
+        }
+
+        &:hover {
+            border-color: rgba(241,91,67,0.09);
+            box-shadow: 0 13px 19px rgba(241,91,67,0.1);
+        }
+    }
+    &:is(.theme-2) {
+        & i {
+            color: var(--clr-theme-2);
+        }
+
+        &:hover {
+            border-color: rgba(101,201,187,0.09);
+            box-shadow: 0 13px 19px rgba(101,201,187,0.1);
+
+        }
+    }
+
+    &:is(.theme-3) {
+        & i {
+            color: var(--clr-theme-3);
+        }
+
+        &:hover {
+            border-color: rgba(255,154,57,0.09);
+            box-shadow: 0 13px 19px rgba(255,154,57,0.1);
+        }
+    }
+
+    &:is(.theme-6) {
+        & i {
+            color: var(--clr-theme-6);
+        }
+
+        &:hover {
+            border-color: rgba(99,181,95,0.09);
+            box-shadow: 0 13px 19px rgba(99,181,95,0.1);
+        }
+    }
+
+
+
+
+}

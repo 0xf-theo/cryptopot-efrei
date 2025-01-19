@@ -1,0 +1,43 @@
+<app-page title="My Account">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h2 class="text-center py-3 border-bottom">Edit Profile</h2>
+        <form (ngSubmit)="updateProfile($event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" autocomplete="off" required>
+          </div>
+          <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" [(ngModel)]="first_name"
+              autocomplete="off" required>
+          </div>
+          <div class="form-group">
+            <label for="mail">Email Adress</label>
+            <input type="email" class="form-control" id="mail" name="mail" [(ngModel)]="mail" autocomplete="off" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top: 1rem">Update</button>
+        </form>
+        <h3 class="text-center py-3 border-bottom">Change password</h3>
+        <form (ngSubmit)="updatePassword($event)">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password"
+              autocomplete="off" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input type="password" class="form-control" id="confirm_password" name="confirm_password" [(ngModel)]="
+              confirm_password" autocomplete="off" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="margin-top: 1rem">Update</button>
+        </form>
+        <hr />
+        <button (click)="logout()" class="btn btn-primary" style="margin-top: 1rem">Logout</button>
+      </div>
+    </div>
+  </div>
+</app-page>

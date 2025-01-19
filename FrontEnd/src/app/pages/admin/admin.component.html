@@ -1,0 +1,380 @@
+<!-- Inclure le fichier CSS de Bootstrap 5 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Inclure le fichier JavaScript de Bootstrap 5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+
+<!-- Code HTML pour les onglets -->
+<div class="container-sm">
+    <div class="container-sm" style="margin-top: 2rem;">
+        <h3>My Account</h3>
+        <button routerLink="/user-profile" class="btn btn-primary"> Update my profile</button>
+        <hr />
+        <div *ngIf="!this._authService.isAdmin()" style="padding-top: 1rem; padding-bottom: 1rem;">
+            <h3>My association</h3>
+            <hr>
+            Name: {{getMyAssociation()?.name}} <br />
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#associationEditModal"
+                (click)="editMyAssociation()">Edit</button>
+        </div>
+        <h3>{{this._authService.isAdmin() ? 'Administration' : 'My pots'}}</h3>
+        <hr>
+        <div *ngIf="this._authService.isAdmin()">
+            <div class="tabs-to-dropdown">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="pill" href="#pots">Pots</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#users">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#associations">Associations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#donations">Donations</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Code HTML pour lister les pots -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="pots">
+
+                <table class="table table-bordered table-striped table-hover mt-5">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Target Amount</th>
+                            <th>Collected Amount</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pots of pots">
+                            <td>{{ pots.id }}</td>
+                            <td>{{ pots.name }}</td>
+                            <td>{{ pots.target_amount }}</td>
+                            <td>{{ pots.amount_paid }}</td>
+                            <td>{{ pots.description }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#potsEditModal" (click)="editPots(pots)">Edit</button>
+
+                                    <button class="btn btn-danger" (click)="deletePot(pots.id)">
+                                        <i class="fas fa-trash"></i>
+                                        <span class="visually-hidden">Delete</span>
+                                    </button>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="create-btn">
+                    <button><i class="fas fa-plus" data-bs-toggle="modal"
+                            data-bs-target="#potsCreationModal"></i> Create</button>
+                </div>
+            </div>
+            <!-- Code HTML pour lister les users -->
+            <div class="tab-pane fade" id="users">
+
+                <table class="table table-bordered table-striped table-hover mt-5">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>First Name</th>
+                            <th>Mail</th>
+                            <th>Roles</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.first_name }}</td>
+                            <td>{{ user.mail }}</td>
+                            <td>{{ user.roles }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#userEditModal" (click)="editUser(user)">Edit</button>
+
+                                    <button class="btn btn-danger" (click)="deleteUser(user.id)">
+                                        <i class="fas fa-trash"></i>
+                                        <span class="visually-hidden">Delete</span>
+                                    </button>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="create-btn">
+                    <button><i class="fas fa-plus" data-bs-toggle="modal"
+                        data-bs-target="#"></i></button>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="associations">
+                <div class="d-flex align-items-center justify-content-between">
+
+                    <div class="create-btn position-fixed" style="right: 20px;">
+                        <button><i class="fas fa-plus"></i> Add Associations</button>
+                    </div>
+                </div>
+                <table class="table table-bordered table-striped table-hover mt-5">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Rna</th>
+                            <th>Mail</th>
+                            <th>Phone Number</th>
+                            <th>Adress</th>
+                            <th>Activity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let association of associations">
+                            <td>{{ association.id }}</td>
+                            <td>{{ association.name }}</td>
+                            <td>{{ association.rna }}</td>
+                            <td>{{ association.mail }}</td>
+                            <td>{{ association.phone_number }}</td>
+                            <td>{{ association.adress }}</td>
+                            <td>{{ association.activity }}</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#associationEditModal"
+                                        (click)="editAssociation(association)">Edit</button>
+
+                                    <button class="btn btn-danger" (click)="deleteAssociation(association.id)">
+                                        <i class="fas fa-trash"></i>
+                                        <span class="visually-hidden">Delete</span>
+                                    </button>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="donations">
+                <table class="table table-bordered table-striped table-hover mt-5">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Linked Pot</th>
+
+                            <th>By</th>
+                            <th>Deposit Date</th>
+                            <th>Crypto Type</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let donation of donations">
+                            <td>{{ donation.id }}</td>
+                            <td>{{ donation.id_pot }}</td>
+                            <td> <a [href]="'https://testnet-explorer-v2.xai-chain.net/address/'+donation.public_address">{{donation.public_address}}</a></td>
+                            <td>{{ donation.deposit_date }}</td>
+                            <td>{{ donation.crypto_type }}</td>
+                            <td>{{ donation.amount }}</td>
+                            <td>
+                                <a [href]="'https://testnet-explorer-v2.xai-chain.net/tx/'+donation.transaction_id">See</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="modal fade" id="potsEditModal" tabindex="-1" aria-labelledby="potsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="potsModalLabel">Pots Informations</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="nom" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Target Amount</label>
+                        <input type="number" class="form-control" id="target_amount" name="target_amount" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Description</label>
+                        <input type="email" class="form-control" id="description" name="description" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" (click)="savePots()">Save Changes</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<div class="modal fade" id="userEditModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">User Informations</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="nom" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail Adress</label>
+                        <input type="email" class="form-control" id="mail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="roles">Rôles</label>
+                        <select class="form-control" id="roles">
+                          <option value="user">User</option>
+                          <option value="admin">Administrateur</option>
+                        </select>
+                      </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" (click)="saveUser()">Save Changes</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>-->
+
+
+<div class="modal fade" id="associationEditModal" tabindex="-1" aria-labelledby="associationModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="associationModalLabel">Association Informations</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Association Name</label>
+                        <input type="text" class="form-control" id="name_asso" name="nom" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Rna</label>
+                        <input type="text" class="form-control" id="rna" name="rna" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail Adress</label>
+                        <input type="email" class="form-control" id="mail_asso" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tel" class="form-label">Phone number</label>
+                        <input type="tel" class="form-control" id="phone" name="tel" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="adresse" class="form-label">Adress</label>
+                        <textarea class="form-control" id="adress" name="adresse" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="adresse" class="form-label">Activity</label>
+                        <textarea class="form-control" id="activity" name="activity" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" (click)="saveAssociation()">Save Changes</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="potsCreationModal" tabindex="-1" aria-labelledby="potsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="potsModalLabel">Pots Informations</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form>
+                <!-- Le formulaire de création de pots -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" required [(ngModel)]="newPots.name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" rows="3" required
+                                [(ngModel)]="newPots.description"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Image</label>
+                            <input type="text" class="form-control" id="image" [(ngModel)]="newPots.image">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" class="form-control" id="amount" required [(ngModel)]="newPots.target_amount">
+                        </div>
+
+                        <div class="form-grouo">
+                            <label>Association</label>
+                            <select class="form-control" [(ngModel)]="newPots.id_asso">
+                                <option *ngFor="let association of associations" [value]="association.id">{{association.name}}</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="contract">Contract</label>
+                            <input type="text" class="form-control" id="contract" required [(ngModel)]="newPots.contract_address">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Le bouton d'enregistrement -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="createNewPots()">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

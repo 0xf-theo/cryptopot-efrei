@@ -1,0 +1,56 @@
+<app-page title="Apply now">
+
+    <section class="about_area pt-120">
+        <div class="about_white_bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="section_title text-center mb-60">
+                            <span class="sub_title sub_title_2">join us</span>
+                            <h3 class="title title_2">Sign up your organization for free</h3>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <p>At CryptoPot, we believe that every charitable organization should have access to the benefits of using cryptocurrencies
+                        for donations. That's why we're excited to offer organizations the opportunity to join our platform.</p>
+                        <div class="card" style="width: 50rem; margin-left: auto; margin-right: auto;margin-top: 2rem">
+                            <div class="card-body">
+                              <form (ngSubmit)="onSubmit()"  [formGroup]="form">
+                                <br>
+                                <div class="mb-3">
+                                  <label for="exampleInputName" class="form-label">Name</label>
+                                  <input type="name" class="form-control" id="exampleInputUsername" formControlName="name">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputfirstName" class="form-label">First name</label>
+                                  <input type="fisrtName" class="form-control" id="exampleInputUsername" formControlName="first_name">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputUsername" class="form-label">Username</label>
+                                  <input type="email" class="form-control" id="exampleInputUsername" formControlName="mail">
+                                  <div id="nameOrganization" class="form-text" style="font-style: italic;">Must be an email</div>
+                                </div>
+                                       
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+                                  <div id="nameOrganization" class="form-text" style="font-style: italic;">The password must contain 12 characters minimum / one special character / one capital letter / one number minimum </div>
+                                </div>
+                                                
+                                <div class="mb-3 form-check">
+                                  <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="acceptTerms">
+                                  <label class="form-check-label" for="exampleCheck1" style="font-style: oblique; font-weight: bold;">My organization accepts the terms and conditions of use.</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary" (click)="onSubmit" [disabled]="!form.valid"> Register my association</button>
+                              </form>
+                            </div>
+                          </div>
+                          
+
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</app-page>

@@ -1,0 +1,54 @@
+<app-page title="Associations">
+
+    <section class="about_area pt-120">
+        <div class="about_white_bg" style="padding-bottom: 20px !important;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="section_title text-center mb-60">
+                            <span class="sub_title sub_title_2">Associations</span>
+                            <h3 class="title title_2">They trust us</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="causes_area gray-bg pt-120 pb-85">
+        <div class="container">
+
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                    <div class="row">
+
+                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6" *ngFor="let assos of associations$|async">
+                            <div class="single_cause mb-30" style="border: 1px solid #eee; border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                <div class="single_cause_img_wrapper" style="height: 280px;background-color: white; border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                                    <div class="single_cause_img w_img img_effect_white">
+                                        <a [routerLink]="'/association/'+assos.id"><img
+                                                [src]="assos.image || 'assets/img/causes/cause6.jpg'" alt="img" style="height: 280px;width: 100%;object-fit: cover;"></a>
+                                    </div>
+                                </div>
+
+                                <div class="single_cause_content" style="border: none">
+                                    <div class="name">
+                                        <h3 class="title"><a [routerLink]="'/association/'+assos.id">{{assos.name}}</a>
+                                        </h3>
+                                    </div>
+                                    <div class="activity">
+                                        <p>{{assos.activity }}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</app-page>

@@ -1,0 +1,31 @@
+<app-header-bar>
+    <app-header-logo style="width: fit-content;" left-container></app-header-logo>
+
+    <app-header-links navigation>
+        <app-header-link to="/">
+            <span title>Home</span>
+        </app-header-link>
+        <app-header-link [subLinks]="true">
+            <span title>About</span>
+            <app-header-link to="/about-us">
+                <span title>About us</span>
+            </app-header-link>
+            <app-header-link to="/how-to-donate">
+                <span title>How to donate</span>
+            </app-header-link>
+            <app-header-link to="/faq">
+                <span title>Faq</span>
+            </app-header-link>
+        </app-header-link>
+        <app-header-link to="/pots">
+            <span title>Pots</span>
+        </app-header-link>
+        <app-header-link to="/associations" class="flex-grow-1">
+            <span title>Associations</span>
+        </app-header-link>
+    </app-header-links>
+
+    <app-button-cta to="/pots" right-container *ngIf="!this._authService.isLoggedIn()">Make donation</app-button-cta>
+    <app-button-cta to="/administration" right-container *ngIf="this._authService.isLoggedIn()">Admin</app-button-cta>
+
+</app-header-bar>

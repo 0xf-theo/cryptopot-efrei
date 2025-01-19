@@ -1,0 +1,54 @@
+<app-page title="login">
+
+  <section class="about_area pt-30">
+    <div class="about_white_bg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-10">
+            <div class="section_title text-center mb-10">
+              <h3 class="title title_2">Connexion</h3>
+            </div>
+          </div>
+
+          <div class="card" style="width: 50rem; margin-left: auto; margin-right: auto;margin-top: 2rem">
+            <div class="card-body">
+              <form (ngSubmit)="onSubmit()" method="POST">
+                <div class="form">
+                  <label for="exampleInputEmail" class="form-label">Adresse-mail</label><br>
+                  <input type="mail" id="mail" name="mail" [(ngModel)]="mail">
+                </div>
+
+                <div class="user-box">
+                  <label>Password</label><br>
+                  <input type="password" name="password" required [(ngModel)]="password">
+
+                </div>
+
+                <br>
+                <br>
+
+                <button class="g_btn theme1_bg to_right2 slider_btn i_center rad-30 p-35" type="submit" id='submit'
+                  value='LOGIN'>LOGIN</button>
+                <div class="button-container">
+                  <div class="forgot-password">
+                    <a href="/forgot-password">Forgot password</a>
+                  </div>
+                  <div class="not-registered">
+                    <a href="/apply">Not registered yet?</a>
+                  </div>
+                </div>
+
+
+              </form>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+</app-page>

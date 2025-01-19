@@ -1,0 +1,152 @@
+
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+
+
+/*
+*****
+05. Accordion
+*************************
+*/
+
+
+.accordion-item {
+    &:first-of-type {
+        & .accordion-button {
+            &:is(.faq_button) {
+                border-radius: 10px;
+                padding-right: 70px;
+
+                @media #{$xl, $xs} {
+                    padding-right: 50px;
+                }
+                @media #{$sm} {
+                    padding-right: 70px;
+                }
+            }
+        }
+    }
+    &:last-of-type {
+        & .accordion-button {
+            &:is(.faq_button) {
+                border-radius: 10px;
+                &:is(.collapsed) {
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
+  .accordion_wrapper {
+    
+    @media #{$xl} {
+        margin-right: 15px;
+    }
+
+    @media #{$lg, $md , $xs} {
+        margin-right: 0;
+    }
+
+      &:is(.padd_80) {
+        padding: 80px;
+        border-radius: 10px;
+        @media #{$lg} {
+            padding: 50px 30px;
+        }
+        @media #{$xl} {
+            padding: 70px 50px;
+        }
+        @media #{$xs} {
+            padding: 30px 15px;
+        }
+        @media #{$xs} {
+            padding: 40px 25px;
+        }
+      }
+
+      & .accordion-item {
+        border: 2px solid #efefef;
+        background-color: #fff;
+        border-radius: 10px;
+        margin-bottom: 16px;
+        &:last-of-type {
+            border-radius: 10px;
+            margin-bottom: 0;
+        }
+
+        &:first-of-type {
+            border-radius: 10px;
+        }
+      }
+
+
+
+      & .accordion-body {
+        padding: 26px;
+        padding-right: 28px;
+        padding-top: 0;
+        background-color: #fff;
+        border-radius: 10px;
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+
+
+  }
+
+
+  .accordion-button {
+
+    &:is(.faq_button) {
+
+        padding: 22px 26px;
+        font-size: 18px;
+        color: var(--clr-body-heading-color);
+        border-radius: 10px;
+        padding-right: 50px;
+        @media #{$xl, $xs} {
+            padding-right: 50px;
+        }
+        @media #{$sm} {
+            padding-right: 50px;
+        }
+
+        &:after {
+            color: #bebebe;
+            font-size: 18px;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            font-family: 'font awesome 5 pro';
+            content: "\f067";
+            transform: translateY(-50%);
+            background-image: none;
+            transition: .5s ease-in-out;
+
+            @media #{$xl, $xs} {
+                right: 20px;
+            }
+            @media #{$sm} {
+                right: 20px;
+            }
+        }
+
+        &:not(.collapsed) {
+            color: var(--clr-body-heading-color);
+            background-color: transparent;
+            box-shadow: none;
+
+            &::after {
+                content: "\f068";
+                transition: .5s ease-in-out;
+            }
+        }
+
+        &:focus {
+            border-color: #bebebe;
+            box-shadow: none;
+          }
+    }
+  }

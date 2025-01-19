@@ -1,0 +1,193 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+
+
+/*
+*****
+04. Slider
+*************************
+*/
+
+
+
+.img_topleft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 50%;
+  }
+  .img_topright {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 50%;
+
+  }
+  .img_bottomleft {
+    position: absolute;
+    left: -60px;
+    bottom: -125px;
+    @media #{$xl}{
+      max-width: 50%;
+    }
+    @media #{$lg}{
+      max-width: 50%;
+    }
+    @media #{$md}{
+      max-width: 50%;
+    }
+    @media #{$xs}{
+      max-width: 100%;
+    }
+  }
+  .img_bottomright {
+    position: absolute;
+    bottom: 0;
+    right: 60px;
+    @media #{$xl}{
+      right: 0px;
+    }
+    @media #{$lg}{
+      right: 0px;
+    }
+    @media #{$md}{
+      right: 0px;
+    }
+    @media #{$xs}{
+      display: none;
+    }
+  }
+  .slider_area {
+    position: relative;
+    background-color: var(--clr-common-slider-bg-color);
+    overflow: hidden;
+
+    @at-root {
+      .slider_content {
+        &:is(.text_space) {
+          @media #{$xxl}{
+            margin-bottom: 158px;
+          }
+          @media #{$xl}{
+            margin-bottom: 158px;
+          }
+          @media #{$lg}{
+            margin-bottom: 158px;
+          }
+          @media #{$md}{
+            margin-bottom: 158px;
+          }
+          @media #{$xs}{
+            margin-bottom: 0;
+          }
+        }
+        & .slider_button {
+          position: absolute;
+          right: 70px;
+          top: 60px;
+          @media #{$xl}{
+            position: static;
+            margin-top: 30px;
+          }
+          @media #{$lg}{
+            position: static;
+            margin-top: 30px;
+          }
+          @media #{$md}{
+            position: static;
+            margin-top: 30px;
+          }
+          @media #{$xs}{
+            position: static;
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+    & .slider_text {
+      position: relative;
+      z-index: 1;
+      &:is(.text_overlay) {
+        @media #{$xl, $lg, $md} {
+          padding: 30px;
+          padding-bottom: 45px;
+          &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            background-color: #fff;
+            opacity: 0.6;
+            z-index: -1;
+            border-radius: 0 30px 30px 30px;
+          }
+        }
+      }
+
+      & .slider_title {
+        font-size: 152px;
+        line-height: 1;
+        font-weight: 700;
+        color: var(--clr-body-heading-color);
+        @media #{$xl}{
+          font-size: 145px;
+        }
+        @media #{$lg}{
+          font-size: 125px;
+        }
+        @media #{$md}{
+          font-size: 95px;
+        }
+        @media #{$xs}{
+          font-size: 75px;
+        }
+        @media #{$sm}{
+          font-size: 90px;
+        }
+
+        & span {
+          font-size: 120px;
+          font-weight: 100;
+          line-height: 1.12;
+          @media #{$xl}{
+            font-size: 105px;
+          }
+          @media #{$lg}{
+            font-size: 95px;
+          }
+          @media #{$md}{
+            font-size: 85px;
+          }
+          @media #{$xs}{
+            font-size: 65px;
+            display: block;
+          }
+        }
+      }
+
+
+    }
+  }
+  
+    .slider_height {
+      min-height: 900px;
+      @media #{$md}{
+        min-height: 800px;
+      }
+      @media #{$xs}{
+        min-height: 570px;
+      }
+    }
+
+
+    .slider_height_2 {
+      min-height: 750px;
+    }
+
+
+  
+  

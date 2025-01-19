@@ -1,0 +1,9 @@
+<li [class]="subLinks ? 'menu-item-has-children' : ''">
+    <a [routerLink]="to">
+        <ng-content select="[title]"></ng-content>
+    </a>
+
+    <ul class="sub-menu" *ngIf="subLinks">
+        <ng-content select="app-header-link"></ng-content>
+    </ul>
+</li>

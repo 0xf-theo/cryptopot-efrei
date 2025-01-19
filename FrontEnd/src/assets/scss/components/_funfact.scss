@@ -1,0 +1,282 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/variables' as *;
+
+
+
+/*
+*****
+23. Funfact
+*************************
+*/
+
+
+.funfact_wrapper {
+  padding: 0 44px;
+  @media #{$xs} {
+    padding: 0;
+  }
+}
+
+.funshape {
+    & img {
+        object-fit: cover;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+.shape_topright, .shape_bottomleft {
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+
+
+}
+.shape_topleft {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 142px;
+    left: 345px;
+    border-radius: 50%;
+    
+    @media #{$xl} {
+      left: 250px;
+    }
+    @media #{$lg} {
+      left: 145px;
+    }
+    @media #{$md} {
+      left: 90px;
+    }
+    @media #{$xs} {
+      display: none;
+    }
+  }
+
+  .shape_topright {
+    position: absolute;
+    top: 65px;
+    right: 204px;
+    @media #{$lg} {
+      right: 150px;
+    }
+    @media #{$md} {
+      right: 100px;
+    }
+    @media #{$xs} {
+      display: none;
+    }
+  }
+  .shape_bottomleft {
+    position: absolute;
+    bottom: 136px;
+    left: 92px;
+    z-index: -1;
+
+    @media #{$xxl, $xl, $lg, $md, $xs} {
+      display: none;
+    }
+  }
+  .shape_bottomright {
+    width: 105px;
+    height: 105px;
+    position: absolute;
+    bottom: 165px;
+    right: 167px;
+    border-radius: 50%;
+    z-index: -1;
+
+    @media #{$xxl, $xl, $lg, $md, $xs} {
+      display: none;
+    }
+  }
+
+  
+.funfact_icon {
+    width: 120px;
+    height: 120px;
+    background-color: #f15b43;
+    display: inline-block;
+    line-height: 120px;
+    text-align: center;
+    border-radius: 50%;
+    margin-bottom: 55px;
+  }
+  .funfact_sub {
+    font-size: 16px;
+    color: #ff5500;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+
+
+  .funfact_title_section {
+    & h3 {
+      line-height: 1;
+      margin-bottom: 10px;
+
+      @media #{$lg} {
+        font-size: 50px;
+      }
+      @media #{$md} {
+        font-size: 45px;
+      }
+
+      @media #{$xs} {
+        font-size: 23px;
+        line-height: 1.2;
+      }
+
+    }
+
+    & .funfact_text_wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      & .funfact_bigtext {
+        font-size: 120px;
+        color: #f15b43;
+        font-weight: 700;
+        margin-right: 30px;
+        line-height: 1;
+
+        @media #{$xs} {
+          font-size: 90px;
+          margin-right: 15px;
+        }
+
+
+      }
+  
+      & .funfact_righttext {
+        font-size: 30px;
+        font-weight: 700;
+        color: #142645;
+        line-height: 1.2;
+        text-align: left;
+        @media #{$xs} {
+          font-size: 20px;
+        }
+
+        & span {
+          @media #{$xs} {
+            display: block;
+          }
+        }
+
+      }
+  
+    }
+
+  }
+  .funfact_upper {
+    padding-bottom: 120px;
+    position: relative;
+
+
+    @media #{$md} {
+      padding-bottom: 60px;
+    }
+    @media #{$xs} {
+      padding-bottom: 40px;
+    }
+  }
+  .funfact_backtitle {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -110px;
+    font-size: 280px;
+    font-weight: 700;
+    z-index: -1;
+    background: -webkit-linear-gradient(#ffffff, #dce8eb);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+
+    @media #{$xl} {
+      font-size: 250px;
+      bottom: -90px;
+    }
+    @media #{$lg} {
+      font-size: 200px;
+      bottom: -70px;
+    }
+    @media #{$md} {
+      font-size: 140px;
+      bottom: -45px;
+    }
+    @media #{$xs} {
+      font-size: 65px;
+      bottom: -12px;
+    }
+
+  }
+
+  .funfact_lower {
+    box-shadow: 0px 16px 32px 0px rgba(209, 209, 209, 0.3);
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 70px;
+    padding-bottom: 35px;
+    display: flex;
+    margin-top: -15px;
+    @media #{$xl} {
+      padding: 70px 40px;
+      padding-bottom: 35px;
+    }
+    @media #{$lg, $md} {
+      flex-direction: column;
+      padding: 70px 40px;
+      padding-bottom: 35px;
+    }
+
+    @media #{$xs} {
+      flex-direction: column;
+      padding: 30px 15px;
+      padding-bottom: 0;
+    }
+
+
+    & .support_search_section {
+        &:is(.funfact_input) {
+            flex: 0 0 460px;
+            margin-right: 28px;
+
+            @media #{$xl} {
+              flex: 0 0 375px;
+            }
+
+            @media #{$lg, $md, $xs} {
+              flex: 0 0 auto;
+              margin-right: 0;
+            }
+
+        }
+    }
+  }
+
+  .funfact_button {
+      & .g_btn {
+          margin-left: 28px;
+          padding: 0 45px;
+          @media #{$md} {
+            padding: 0 30px;
+          }
+
+          @media #{$xs} {
+            margin-left: 0;
+          }
+          @media #{$sm} {
+            padding: 0 30px;
+            margin-bottom: 0;
+            margin-left: 28px;
+          }
+
+      }
+  }
+
+  
+  

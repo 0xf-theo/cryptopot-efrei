@@ -1,0 +1,505 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name: Donacion - Fundraising & Charity HTML Template
+    Description: Donacion - Fundraising & Charity HTML Template
+    Author: Theme_Pure
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+
+CSS INDEX
+===================
+
+01. common
+02. Header
+03. Navigation
+04. Slider
+05. Accordion
+06. Breadcrumb
+07. Contact
+08. Mission
+09. Cta
+10. About
+11. Section Title
+12. Cause
+13. Support
+14. Choose Single Card
+15. Feature Event
+16. Newsfeed
+17. Iconbox
+18. Eventcount
+19. Donation
+20. Team
+21. Choose
+22. Circular Progress
+23. Funfact
+24. Services
+25. Events
+26. Testimonial
+27. Back-to-top
+28. Sidebar
+29. Footer
+-----------------------------------------------------------------------------------*/
+
+
+@use 'colors' as *;
+@use './mixins' as *;
+@use './colors' as *;
+@use './variables' as *;
+
+
+/*
+*****
+01. common
+*************************
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Roboto:wght@100;200;300;400;500;700;900&display=swap');
+
+
+
+ body {
+	font-family: $roboto;
+	font-weight: 400;
+    font-style: normal;
+    color: var(--clr-body-text-color);
+}
+
+.img,img {
+	max-width: 100%;
+	@include transition(.3s);
+}
+.border_radius10 {
+	& img {
+		border-radius: 10px;
+	}
+}
+.f-left {
+	float: left
+}
+.f-right {
+	float: right
+}
+.fix {
+	overflow: hidden
+}
+a,
+.button, button {
+	@include transition(.3s);
+}
+a:focus,
+.button:focus {
+	text-decoration: none;
+	outline: none;
+}
+a:focus,
+a:hover
+{
+	color: inherit;
+	text-decoration: none;
+}
+a,
+button {
+	color: inherit;
+	outline: medium none;
+}
+button{border: 0;}
+button:focus,input:focus,input:focus,textarea,textarea:focus{outline: 0}
+.uppercase {
+	text-transform: uppercase;
+}
+.capitalize {
+	text-transform: capitalize;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $roboto;
+	color: var(--clr-body-heading-color);
+	margin-top: 0px;
+	font-weight: 700;
+	text-transform: normal;
+	line-height: 1.16;
+	margin-bottom: 15px;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: inherit;
+	text-decoration: none;
+}
+h1 {
+	font-size: 80px;
+	font-weight: 700;
+}
+h2 {
+	font-size: 60px;
+}
+h3 {
+	font-size: 45px;
+}
+h4 {
+	font-size: 36px;
+}
+h5 {
+	font-size: 20px;
+}
+h6 {
+	font-size: 16px;
+}
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+p {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.6;
+	color: var(--clr-common-body-text-color);
+	margin-bottom: 15px;
+
+	@media #{$xs} {
+		font-size: 16px;
+	}
+}
+hr {
+	border-bottom: 1px solid var(--clr-common-hr-border-color);
+	border-top: 0 none;
+	padding: 0;
+	opacity: 1;
+}
+label {
+	color: var(--clr-soft-soft-black-soft);
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: var(--fw-fweight-regular);
+}
+*::-moz-selection {
+	background: var(--clr-common-black);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+::-moz-selection {
+	background: var(--clr-common-black);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+::selection {
+	background: var(--clr-common-black);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+
+
+
+/*--
+    - Input Placeholder
+-----------------------------------------*/
+input {
+	@include placeholder {
+		color: var(--clr-common-black);
+		font-size: 14px;
+		opacity: 1;
+		transition: 0.3s;
+	}
+
+	&:focus {
+		@include placeholder {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+}
+
+
+/*--
+    - Common Classes
+-----------------------------------------*/
+.fix {
+    overflow:hidden
+}
+.clear{
+    clear: both;
+}
+.w-200 {
+	width: 200px;
+}
+.p-rel {
+	position: relative;
+}
+.p-abs {
+	position: absolute;
+}
+.rad-5 {
+	border-radius: 5px;
+}
+.rad-20 {
+	border-radius: 20px;
+}
+.rad-30 {
+	border-radius: 30px;
+}
+.rad-50 {
+	border-radius: 50px;
+}
+.rad-50p {
+	border-radius: 50%;
+}
+.p-35 {
+	padding-left: 35px;
+	padding-right: 35px;
+}
+.p-40 {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+.p-45 {
+	padding-left: 45px;
+	padding-right: 45px;
+
+}
+.p-55 {
+	padding-left: 55px;
+	padding-right: 55px;
+}
+.p-60 {
+	padding-right: 60px;
+	padding-left: 60px;
+}
+.pt-205 {
+	padding-top: 205px;
+}
+.pt-210 {
+	padding-top: 210px;
+}
+.p-250 {
+	padding-top: 250px;
+	padding-bottom: 250px;
+}
+.pb-385 {
+	padding-bottom: 385px;
+}
+.pb-390 {
+	padding-bottom: 390px;
+}
+.pb-420 {
+	padding-bottom: 420px;
+}
+.pl-165 {
+	padding-left: 165px;
+}
+.cta-bg {
+	background-color: var(--clr-common-cta-bg);
+}
+.grey-bg {
+	background-color: var(--clr-common-grey-bg);
+}
+.about-bg {
+	background-color: var(--clr-common-gray-bg);
+}
+.gray-bg {
+	background-color: var(--clr-soft-gray-bg);
+}
+.blue-bg {
+	background-color: var(--clr-theme-7);
+}
+.white-bg {
+	background-color: var(--clr-common-white);
+}
+.soft-grey-bg {
+	background-color: var(--clr-soft-grey-bg);
+}
+.soft-grey-2 {
+	background-color: var(--clr-soft-grey-2);
+}
+.brand-bg {
+	background-color: var(--clr-soft-brand);
+}
+.text_space {
+	margin-bottom: 165px;
+}
+.w_img > img {
+	width: 100%;
+}
+.mtm-294 {
+	margin-top: -294px;
+}
+.mtm-300 {
+	margin-top: -300px;
+}
+.bg_cover {
+	background-size: cover;
+}
+.gutter_40 {
+    --bs-gutter-x: 40px;
+}
+
+.gutter_85 {
+	@media #{$xxl} {
+		--bs-gutter-x: 85px;
+	}
+
+	@media #{$xl, $lg, $md, $xs} {
+		--bs-gutter-x: 30px;
+	}
+}
+
+
+.sm_mb0 {
+	@media #{$sm} {
+		margin-bottom: 0;
+	}
+}
+
+
+
+br {
+
+	@media #{$xs} {
+		display: none;
+	}
+    
+}
+
+
+
+
+/*--
+    - Margin & Padding
+-----------------------------------------*/
+/*-- Margin Top --*/
+@for $i from 1 through 40 {
+    .mt-#{5 * $i}{margin-top: 5px * $i;}
+}
+/*-- Margin Bottom --*/
+@for $i from 1 through 40 {
+    .mb-#{5 * $i}{margin-bottom: 5px *$i;}
+}
+/*-- Margin Left --*/
+@for $i from 1 through 40 {
+    .ml-#{5 * $i}{margin-left: 5px * $i;}
+}
+
+/*-- Margin Right --*/
+@for $i from 1 through 40 {
+    .mr-#{5 * $i}{margin-right: 5px *$i;}
+}
+
+/*-- Padding Top --*/
+@for $i from 1 through 40 {
+    .pt-#{5 * $i}{padding-top: 5px *$i;}
+}
+
+/*-- Padding Bottom --*/
+@for $i from 1 through 40 {
+    .pb-#{5 * $i}{padding-bottom: 5px *$i;}
+}
+
+/*-- Padding Left --*/
+@for $i from 1 through 40 {
+    .pl-#{5 * $i}{padding-left: 5px *$i;}
+}
+
+/*-- Padding Right --*/
+@for $i from 1 through 40 {
+    .pr-#{5 * $i}{padding-right: 5px *$i;}
+}
+// declaration
+
+:root {
+    /**
+    @color declaration
+    */
+    @each $color, $shades in $colors {
+        @each $shade, $value in $shades {
+            --clr-#{$color}-#{$shade}: #{$value};
+        }
+    }
+}
+/*--
+    - Overlay
+------------------------------------------*/
+[data-overlay] {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+    }
+}
+
+/*-- Overlay Color --*/
+[data-overlay="light"] {
+    &::before {
+        background-color: var(--clr-common-white);
+    }
+}
+[data-overlay="theme"] {
+    &::before {
+        background-color: var(--clr-theme-1);
+    }
+}
+[data-overlay="dark"] {
+    &::before {
+        background-color: var(--clr-common-black);
+    }
+}
+
+/*-- Overlay Opacity --*/
+[data-opacity="1"] {
+    &::before {
+        opacity: 0.1;
+    }
+}
+[data-opacity="2"] {
+    &::before {
+        opacity: 0.2;
+    }
+}
+[data-opacity="3"] {
+    &::before {
+        opacity: 0.3;
+    }
+}
+[data-opacity="4"] {
+    &::before {
+        opacity: 0.4;
+    }
+}
+[data-opacity="5"] {
+    &::before {
+        opacity: 0.5;
+    }
+}
+[data-opacity="6"] {
+    &::before {
+        opacity: 0.6;
+    }
+}
+[data-opacity="7"] {
+    &::before {
+        opacity: 0.7;
+    }
+}
+[data-opacity="8"] {
+    &::before {
+        opacity: 0.8;
+    }
+}
+[data-opacity="9"] {
+    &::before {
+        opacity: 0.9;
+    }
+}
