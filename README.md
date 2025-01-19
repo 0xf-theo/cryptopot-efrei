@@ -163,42 +163,12 @@ npx hardhat run scripts/deploy.js --network rinkeby
 
 ---
 
-### 🎯 Project Structure
-
-```
-cryptopot/
-│-- frontend/          # Angular front-end
-│   ├── src/
-│   ├── package.json
-│   ├── angular.json
-│-- backend/           # Symfony back-end
-│   ├── src/
-│   ├── config/
-│   ├── composer.json
-│-- contracts/         # Solidity smart contracts
-│   ├── contracts/
-│   ├── scripts/
-│   ├── hardhat.config.js
-│-- README.md
-```
-
----
-
 ### 💡 Future Improvements
 
 - Add support for additional blockchains such as BNB Chain and Polygon.
 - Implement multi-signature wallets for enhanced security.
 - Introduce a mobile-friendly UI.
-
----
-
-### 📧 Contact
-
-For any questions or contributions, feel free to reach out:
-
-- Email: support@cryptopot.com
-- Twitter: [@CryptoPotOfficial](https://twitter.com/CryptoPotOfficial)
-
+- 
 ---
 
 ### 📄 License
